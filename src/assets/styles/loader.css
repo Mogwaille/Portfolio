@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Conteneur principal */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Texte de chargement */
+.loader-text {
+    font-size: 5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 5px;
+    color: #00ffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    opacity: 0;
+    animation: fadeInText 1s ease-in forwards, fadeOutText 1s ease-out forwards 4s;
+    animation-delay: 2.5s, 4.5s; /* Le texte s'affiche après 2s, puis disparaît après 5s */
+}
+
+/* Animation pour faire apparaître le texte progressivement */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation pour faire disparaître le texte */
+@keyframes fadeOutText {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Conteneur des vagues */
+.waves-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    overflow: hidden;
+    transform: scaleY(-1);
+}
+
+/* Rectangle sous la vague */
+.rectangle {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #48a5da;
+    z-index: 999;
+    animation: rectangleSlide 4s ease-in-out forwards;
+    animation-delay: 1s;
+}
+
+/* Animation pour faire descendre les vagues */
+@keyframes waveSlide {
+    0% {
+        transform: translateY(220%); /* Les vagues commencent en dehors de l'écran */
+    }
+    100% {
+        transform: translateY(-100%); /* Les vagues descendent en bas de l'écran */
+    }
+}
+
+/* Animation pour faire descendre le rectangle */
+@keyframes rectangleSlide {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(220%);
+    }
+}
+
+/* Animation des vagues */
+.waves-container svg {
+    animation: waveSlide 4.5s ease-in-out forwards;
+}

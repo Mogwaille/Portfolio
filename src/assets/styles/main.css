@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Général */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f4f4f4;
+    --accent-color: #ff6f61;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêcher le défilement horizontal */
+}
+
+/* Typographie */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+
+/* Sections */
+section {
+    transform: translateY(50px);  /* Décalage de départ */
+    opacity: 0;  /* Invisibles au départ */
+    transition: opacity 0.6s ease, transform 0.6s ease;  /* Animation de transition */
+}
+
+section.visible {
+    transform: translateY(0);  /* Retour à la position normale */
+    opacity: 1;  /* Sections deviennent visibles */
+}
+
+/* Animation d'apparition de la page */
+@keyframes fadeInPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.page-content {
+    opacity: 0; /* Commence invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-content.fade-in {
+    animation: fadeInPage 1s forwards;
+}

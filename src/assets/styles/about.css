@@ -1,0 +1,86 @@
+/* Section à propos */  
+.about-section {
+    background: linear-gradient(
+      to top right,
+      #1c1c1c, /* Couleur légèrement plus claire */
+      #000000 /* Noir plus profond */
+    );
+    color: #fff; /* Texte blanc */
+    padding: 100px 0; /* Ajuste cet espace pour adapter la hauteur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -46px; /* Ajuste cette valeur pour recouvrir la barre blanche */
+    padding-right: 100px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    align-items: center;
+    gap: 250px; /* Espacement entre le texte et l'image */
+  }
+  
+  .about-text {
+    flex: 1;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6; /* Pour rendre le texte plus lisible */
+    text-align: left; /* Aligner le texte à gauche */
+    max-width: 600px; /* Limiter la largeur du texte pour centrer visuellement */
+    margin: 0 auto; /* Centrer le texte dans la section */
+  }
+  
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px; /* Réduire l'espace en dessous */
+    margin-left: 0; /* Aligner le titre avec le paragraphe */
+    font-family: 'Montserrat', sans-serif;
+    text-align: left; /* Assurer que le texte est bien aligné à gauche */
+}
+  
+  .about-text p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .about-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: -50px;
+}
+
+.about-illustration {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    filter: brightness(100%);
+}
+
+/* Effet de surbrillance au survol */
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: background 1s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-image:hover::after {
+    background: radial-gradient(circle at var(--mouseX) var(--mouseY), rgba(255, 255, 255, 0.3), transparent 50%); /* Réduit la luminosité */
+}
+
+.about-image:hover .about-illustration {
+    opacity: 0.9;
+    filter: brightness(110%);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
