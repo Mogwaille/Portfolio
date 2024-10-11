@@ -1,95 +1,121 @@
-/* skills.css */
 #skills {
-    padding: 100px 20px;
-    background-color: white;
-    color: black;
-    margin-top: -55%;
-  }
+  padding: 100px 20px;
+  background-color: white;
+  color: black;
+  margin-top: -55%;
+}
   
-  #skills h2 {
-    font-size: 10rem;
-    text-align: center;
-    margin-top: -1%;
-  }
+#skills h2 {
+  font-size: 10rem;
+  text-align: center;
+  margin-top: -1%;
+}
   
-  #skills h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
+#skills h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
   
-  #skills ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
+#skills ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
   
-  #skills li {
-    background-color: var(--accent-color);
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+#skills li {
+  background-color: var(--accent-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
   
-  #skills li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
+#skills li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
 
-  .skills-section {
-    text-align: center;
-    padding: 50px 0;
-  }
+.skills-section {
+  text-align: center;
+  padding: 50px 0;
+}
   
-  .skills-title, .tools-title {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
+.skills-title, .tools-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
   
-  .skills-logos, .tools-logos {
-    display: flex;
-    justify-content: space-evenly; /* Distribution plus uniforme des éléments */
-    gap: 10px; /* Réduire l'espace entre les logos */
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    background: linear-gradient(135deg, #f6f6f6, #eaeaea); /* Dégradé du plus clair (#f0f0f0) au plus foncé (#d9d9d9) */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.skills-logos, .tools-logos {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #f6f6f6, #eaeaea);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .skill, .tool {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: -10px;
-  }
+.skill, .tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
   
-  .skill-logo, .tool-logo {
-    width: 60px; /* Ajuste la largeur selon tes préférences */
-    height: 60px; /* Assure une hauteur uniforme */
-    object-fit: contain; /* Contient le logo à l'intérieur de la zone */
-    margin-bottom: 10px;
-  }
+.skill-logo, .tool-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
   
-  .skill-name, .tool-name {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333; /* Ajuste la couleur du texte si nécessaire */
-  }
+.skill-name, .tool-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
   
-  .skill-logo:hover, .tool-logo:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
+.skill-logo:hover, .tool-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+/* Media Queries pour tablettes */
+@media (max-width: 1024px) {
+
+#skills {
+  margin-top: 0%;
+  margin-bottom: -20%;
+}
+
+#skills h2 {
+  font-size: 6rem;
+  margin-top: -50px;
+}
+
+}
+
+
+/* Media Queries pour téléphones */
+@media (max-width: 768px) {
+
+#skills h2 {
+  font-size: 2.8rem;
+  margin-top: -20%;
+}
+
+}

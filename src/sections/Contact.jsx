@@ -1,22 +1,31 @@
-import React, { useState } from 'react';
+// Importation des divers éléments
+import React, { useState, useContext } from 'react';
 import logoGitHub from '../assets/images/logo-github.png';
 import logoLinkedIn from '../assets/images/logo-linkedin.png';
+import { LanguageContext } from '../LanguageContext';
+import translations from '../translations';
 
+
+// Déclaration des divers constantes
 function Contact() {
+  const { language } = useContext(LanguageContext);
   const [isCopied, setIsCopied] = useState(false);
 
+  // Constante pour copier l'email dans le presse-papier
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText('td.webdev@outlook.com');
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
 
+
+  // On return l'HTML
   return (
     <footer id="contact" className="contact-section">
       <div className="social-media-section">
         <div className="social-media">
-          <h2>Réseaux sociaux et liens</h2>
-          <p>Vous pouvez me retrouver sur ces plateformes 👇</p>
+          <h2>{translations[language].socialTitle}</h2>
+          <p>{translations[language].socialDescription}</p>
           <div className="buttons">
             <a
               href="https://github.com/Mogwaille"
@@ -42,28 +51,28 @@ function Contact() {
 
       <div className="contact-form-section">
         <div className="contact-form">
-          <h2>Contactez-moi</h2>
+          <h2>{translations[language].contactTitle}</h2>
           <div className="email-container">
             <span className="email-address">td.webdev@outlook.com</span>
             <button className="copy-button" onClick={copyEmailToClipboard}>
-              {isCopied ? 'Copié !' : '📋'}
+              {isCopied ? translations[language].copySuccess : translations[language].copyIcon}
             </button>
           </div>
-          <p>Ou, si vous préférez, remplissez le formulaire ci-dessous :</p>
+          <p>{translations[language].formOr}</p>
           <form>
-            <label htmlFor="name">Nom</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required />
+            <label htmlFor="name">{translations[language].namePlaceholder}</label>
+            <input type="text" id="name" name="name" placeholder={translations[language].namePlaceholder} required />
 
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Votre email" required />
+            <label htmlFor="email">{translations[language].emailPlaceholder}</label>
+            <input type="email" id="email" name="email" placeholder={translations[language].emailPlaceholder} required />
 
-            <label htmlFor="subject">Sujet</label>
-            <input type="text" id="subject" name="subject" placeholder="Objet de votre message" required />
+            <label htmlFor="subject">{translations[language].subjectPlaceholder}</label>
+            <input type="text" id="subject" name="subject" placeholder={translations[language].subjectPlaceholder} required />
 
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" placeholder="Votre message..." rows="5" required></textarea>
+            <label htmlFor="message">{translations[language].messagePlaceholder}</label>
+            <textarea id="message" name="message" placeholder={translations[language].messagePlaceholder} rows="5" required></textarea>
 
-            <button type="submit" className="submit-button">Envoyer</button>
+            <button type="submit" className="submit-button">{translations[language].submitButton}</button>
           </form>
         </div>
       </div>

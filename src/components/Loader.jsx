@@ -1,13 +1,14 @@
+// Importation des divers éléments
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/loader.css';
 
+// Déclaration des divers constantes
 function Loader({ onTransitionEnd }) {
   const [isHidden, setIsHidden] = useState(false);
-
+ 
+  // Divers paramètres du loader
   useEffect(() => {
-    const wavesDuration = 5500; // Ajuste ici la durée du loader (prolongation)
-
-    // Masquer le loader après la durée choisie
+    const wavesDuration = 5500;
     setTimeout(() => {
       setIsHidden(true);
       onTransitionEnd();
@@ -15,12 +16,15 @@ function Loader({ onTransitionEnd }) {
 
   }, [onTransitionEnd]);
 
+
+  // On return l'HTML
   return (
     <div className={`loader-container ${isHidden ? 'hidden' : ''}`}>
       <div className="loader-text">
         <span>Chargement...</span>
       </div>
 
+      {/* Création de la vague en SVG */}
       <div className="waves-container">
         <svg viewBox="0 0 1440 320">
           <path fill="#4eb7f4" d="M0,128L60,138.7C120,149,240,171,360,186.7C480,203,600,213,720,192C840,171,960,128,1080,128C1200,128,1320,192,1380,224L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>

@@ -2,49 +2,47 @@
 
 /* Général */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 :root {
-    --primary-color: #ffffff;
-    --secondary-color: #f4f4f4;
-    --accent-color: #ff6f61;
-    --text-color: #ffffff;
+  --primary-color: #ffffff;
+  --secondary-color: #f4f4f4;
+  --accent-color: #ff6f61;
+  --text-color: #ffffff;
 }
 
 body {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Empêcher le défilement horizontal */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* Typographie */
 h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
-
-
 
 /* Sections */
 section {
-    transform: translateY(50px);  /* Décalage de départ */
-    opacity: 0;  /* Invisibles au départ */
-    transition: opacity 0.6s ease, transform 0.6s ease;  /* Animation de transition */
+  transform: translateY(50px);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 section.visible {
-    transform: translateY(0);  /* Retour à la position normale */
-    opacity: 1;  /* Sections deviennent visibles */
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /* Animation d'apparition de la page */
@@ -58,10 +56,10 @@ section.visible {
 }
 
 .page-content {
-    opacity: 0; /* Commence invisible */
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .page-content.fade-in {
-    animation: fadeInPage 1s forwards;
+  animation: fadeInPage 1s forwards;
 }

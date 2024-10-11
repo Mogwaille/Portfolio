@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-/* Conteneur principal */
 .loader-container {
     position: fixed;
     top: 0;
@@ -21,7 +20,6 @@
     pointer-events: none;
 }
 
-/* Texte de chargement */
 .loader-text {
     font-size: 5rem;
     font-family: 'Bebas Neue', sans-serif;
@@ -34,10 +32,9 @@
     z-index: 1001;
     opacity: 0;
     animation: fadeInText 1s ease-in forwards, fadeOutText 1s ease-out forwards 4s;
-    animation-delay: 2.5s, 4.5s; /* Le texte s'affiche après 2s, puis disparaît après 5s */
+    animation-delay: 2.5s, 4.5s;
 }
 
-/* Animation pour faire apparaître le texte progressivement */
 @keyframes fadeInText {
     0% {
         opacity: 0;
@@ -47,7 +44,6 @@
     }
 }
 
-/* Animation pour faire disparaître le texte */
 @keyframes fadeOutText {
     0% {
         opacity: 1;
@@ -57,7 +53,6 @@
     }
 }
 
-/* Conteneur des vagues */
 .waves-container {
     position: absolute;
     top: 0;
@@ -69,7 +64,6 @@
     transform: scaleY(-1);
 }
 
-/* Rectangle sous la vague */
 .rectangle {
     position: absolute;
     bottom: 0;
@@ -81,17 +75,15 @@
     animation-delay: 1s;
 }
 
-/* Animation pour faire descendre les vagues */
 @keyframes waveSlide {
     0% {
-        transform: translateY(220%); /* Les vagues commencent en dehors de l'écran */
+        transform: translateY(220%);
     }
     100% {
-        transform: translateY(-100%); /* Les vagues descendent en bas de l'écran */
+        transform: translateY(-100%);
     }
 }
 
-/* Animation pour faire descendre le rectangle */
 @keyframes rectangleSlide {
     0% {
         transform: translateY(0%);
@@ -101,7 +93,64 @@
     }
 }
 
-/* Animation des vagues */
 .waves-container svg {
     animation: waveSlide 4.5s ease-in-out forwards;
+}
+
+
+/* Media Queries pour tablettes */
+@media (max-width: 1024px) {
+
+.loader-text {
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.waves-container {
+    height: 100vh;
+}
+
+@keyframes waveSlide {
+    0% {
+        transform: translateY(700%);
+    }
+    10% {
+        transform: translateY(700%); 
+    }
+    100% {
+        transform: translateY(-300%);
+    }
+}
+
+.rectangle {
+    height: 100vh;
+}
+
+@keyframes rectangleSlide {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+}
+
+
+/* Media Queries pour téléphones */
+@media (max-width: 768px) {
+
+@keyframes waveSlide {
+    0% {
+        transform: translateY(1000%);
+    }
+    20% {
+        transform: translateY(950%); 
+    }
+    100% {
+        transform: translateY(-550%);
+    }
+}
+
 }

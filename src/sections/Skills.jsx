@@ -1,4 +1,5 @@
-import React from 'react';
+// Importation des divers éléments
+import React, { useContext } from 'react';
 import logoJS from '../assets/images/logo-js.png';
 import logoReact from '../assets/images/logo-react.png';
 import logoHTML from '../assets/images/logo-html.png';
@@ -9,11 +10,19 @@ import logoGit from '../assets/images/logo-git.png';
 import logoGithub from '../assets/images/logo-github.png';
 import logoSass from '../assets/images/logo-sass.png';
 import logoVercel from '../assets/images/logo-vercel.png';
+import { LanguageContext } from '../LanguageContext';
+import translations from '../translations';
 
+
+// Déclaration des divers constantes
 function Skills() {
+  const { language } = useContext(LanguageContext);
+
+  
+  // On return l'HTML
   return (
     <section id="skills" className="skills-section">
-      <h2 className="skills-title">COMPÉTENCES</h2>
+      <h2 className="skills-title">{translations[language].skillsTitle}</h2>
       <div className="skills-container">
         <div className="skills-logos">
           <div className="skill">
@@ -41,7 +50,7 @@ function Skills() {
             <p className="skill-name">MongoDB</p>
           </div>
         </div>
-        <h3 className="tools-title">Les outils que j'utilise</h3>
+        <h3 className="tools-title">{translations[language].toolsTitle}</h3>
         <div className="tools-logos">
           <div className="tool">
             <img src={logoGit} alt="Git" className="tool-logo" />

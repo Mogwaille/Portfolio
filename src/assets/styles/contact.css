@@ -1,5 +1,9 @@
 #contact {
-    background-color: #000; /* Fond noir */
+    background: linear-gradient(
+      to top right,
+      #1c1c1c,
+      #000000
+    );
     color: white;
     width: 100%;
     padding-bottom: 30px;
@@ -93,11 +97,11 @@
 }
 
 .contact-form-section {
-    background-color: #111; /* Légère variation pour différencier le fond du formulaire */
-    padding: 20px 30px; /* Espace intérieur pour le formulaire */
+    background-color: #111;
+    padding: 20px 30px;
     border-radius: 10px;
-    max-width: 600px; /* Limite la largeur du formulaire */
-    margin: 0 auto; /* Centre le formulaire */
+    max-width: 600px;
+    margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
 }
@@ -105,15 +109,15 @@
 .contact-form h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
-    color: #e91e63; /* Accentue le titre pour le différencier */
-    text-align: center; /* Centre le texte */
+    color: #e91e63;
+    text-align: center;
 }
 
 .email-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #222; /* Variation plus claire pour le fond de l'email */
+    background: #222;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
@@ -123,7 +127,7 @@
 .email-address {
     font-size: 1rem;
     color: #e91e63;
-    flex-grow: 1; /* Assure que l'email prend tout l'espace disponible */
+    flex-grow: 1;
 }
 
 .copy-button {
@@ -141,7 +145,7 @@
 
 .contact-form p {
     margin-bottom: 20px;
-    text-align: center; /* Centre le texte pour une meilleure présentation */
+    text-align: center;
 }
 
 .contact-form input,
@@ -151,7 +155,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    margin-bottom: 15px; /* Augmente l'espacement entre les champs */
+    margin-bottom: 15px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -159,7 +163,7 @@
 .contact-form label {
     display: block;
     margin-bottom: 5px;
-    color: #ddd; /* Adapte la couleur pour un meilleur contraste */
+    color: #ddd;
 }
 
 .submit-button {
@@ -178,4 +182,14 @@
 
 .submit-button:hover {
     background-color: #ff4081;
+}
+
+
+/* Media Queries pour téléphones */
+@media (max-width: 768px) {
+
+.social-media {
+    margin-right: 13%;
+}
+
 }

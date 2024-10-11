@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import profile2 from '../assets/images/profile2.jpg'; // Assurez-vous de mettre le bon chemin
+// Importation des divers éléments
+import React, { useState, useContext } from 'react';
+import profile2 from '../assets/images/profile2.jpg';
+import { LanguageContext } from '../LanguageContext';
+import translations from '../translations';
 
+
+// Déclaration des divers constantes
 function About() {
+  const { language } = useContext(LanguageContext);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [isHovering, setIsHovering] = useState(false);
 
@@ -21,6 +27,8 @@ function About() {
     setMousePosition({ x: '50%', y: '50%' });
   };
 
+
+  // On return l'HTML
   return (
     <section id="about" className="about-section">
       <div className="about-content">
@@ -37,9 +45,9 @@ function About() {
           <img src={profile2} alt="Photo de profil" className="about-illustration" />
         </div>
         <div className="about-text">
-          <h2>À propos de moi</h2>
-          <p>Je m'appelle Timothée Daemers, j'ai 23 ans et je suis <strong>développeur web</strong> avec une <strong>spécialisation en Front-End et React.</strong></p>
-          <p>J'aime créer des <strong>interfaces dynamiques</strong> et des <strong>expériences utilisateur immersives.</strong></p>
+          <h2>{translations[language].aboutTitle}</h2>
+          <p dangerouslySetInnerHTML={{ __html: translations[language].aboutDescription1 }}></p>
+          <p dangerouslySetInnerHTML={{ __html: translations[language].aboutDescription2 }}></p>
         </div>
       </div>
     </section>
