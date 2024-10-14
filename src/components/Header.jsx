@@ -71,8 +71,8 @@ function Header() {
         >
           <img src={profileImage} alt="Photo de profil" className="profile-image" />
         </div>
-        <div class="scroll-indicator">
-          <div class="scroll-text">
+        <div className="scroll-indicator">
+          <div className="scroll-text">
             SCROLL
           </div>
           <span></span>

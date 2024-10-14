@@ -1,23 +1,49 @@
-// Importation des divers éléments
 import React, { useState, useContext } from 'react';
+import emailjs from 'emailjs-com';
 import logoGitHub from '../assets/images/logo-github.png';
 import logoLinkedIn from '../assets/images/logo-linkedin.png';
 import { LanguageContext } from '../LanguageContext';
 import translations from '../translations';
 
 
-// Déclaration des divers constantes
 function Contact() {
   const { language } = useContext(LanguageContext);
   const [isCopied, setIsCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSuccess, setFormSuccess] = useState(false);
+  const [formError, setFormError] = useState(false);
 
-  // Constante pour copier l'email dans le presse-papier
+  // Fonction pour copier l'email dans le presse-papier
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText('td.webdev@outlook.com');
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
 
+  // Fonction de soumission du formulaire via EmailJS
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormSuccess(false);
+    setFormError(false);
+
+    const serviceID = 'service_7m9aovu'; 
+    const templateID = 'template_k0kgqx7'; 
+    const userID = 'J5b9eZE0nPi7R4bj-';
+
+    emailjs.sendForm(serviceID, templateID, e.target, userID)
+      .then((result) => {
+        console.log(result.text);
+        setFormSuccess(true);
+        e.target.reset();
+      }, (error) => {
+        console.log(error.text);
+        setFormError(true);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
 
   // On return l'HTML
   return (
@@ -59,7 +85,9 @@ function Contact() {
             </button>
           </div>
           <p>{translations[language].formOr}</p>
-          <form>
+
+          {/* Formulaire de contact */}
+          <form onSubmit={handleSubmit}>
             <label htmlFor="name">{translations[language].namePlaceholder}</label>
             <input type="text" id="name" name="name" placeholder={translations[language].namePlaceholder} required />
 
@@ -72,8 +100,14 @@ function Contact() {
             <label htmlFor="message">{translations[language].messagePlaceholder}</label>
             <textarea id="message" name="message" placeholder={translations[language].messagePlaceholder} rows="5" required></textarea>
 
-            <button type="submit" className="submit-button">{translations[language].submitButton}</button>
+            <button type="submit" className="submit-button" disabled={isSubmitting}>
+              {isSubmitting ? translations[language].submittingButton : translations[language].submitButton}
+            </button>
           </form>
+
+          {/* Affichage de la notification en cas de succès ou d'erreur */}
+          {formSuccess && <p className="form-success">{translations[language].formSuccess}</p>}
+          {formError && <p className="form-error">{translations[language].formError}</p>}
         </div>
       </div>
     </footer>
